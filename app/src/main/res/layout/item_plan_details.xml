@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_170sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_height="@dimen/_180sdp">
+    <LinearLayout
+        android:layout_width="@dimen/_170sdp"
+        android:orientation="vertical"
+        android:background="@drawable/boarder_plan"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/boarder_plan_blue"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:background="@drawable/premium"
+                android:layout_height="wrap_content"/>
+            <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="$5.66"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_24sdp" />
+            <com.firstfaceme.firstface.controller.CustomViews.MyTextViewItalic
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="(6 Months)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

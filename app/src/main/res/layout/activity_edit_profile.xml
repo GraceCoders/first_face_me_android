@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:background="@drawable/boarder_bottom_round_pink"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_gravity="center"
+                        android:id="@+id/iv_back"
+                        android:layout_height="@dimen/_28sdp"
+                        android:src="@drawable/back" />
+
+                    <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/edit_profile"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_32sdp" />
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:elevation="10dp"
+                    app:cardCornerRadius="20dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/roundedImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_pic" />
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/edit_pic"
+               android:layout_marginTop="-45dp"
+                android:layout_marginLeft="@dimen/_190sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/edit_profile" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_height="wrap_content">
+                    <com.firstfaceme.firstface.controller.CustomViews.MyEditTextBoldRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sreed"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/graytext"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_1sdp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_height="wrap_content">
+                    <com.firstfaceme.firstface.controller.CustomViews.MyEditTextBoldRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Petrick"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/graytext"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/graytext"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_1sdp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                    <com.firstfaceme.firstface.controller.CustomViews.MyEditTextBoldRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lorem"
+                        android:singleLine="true"
+                        android:gravity="end"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/graytext"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/graytext"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_1sdp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/job"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_height="wrap_content">
+                    <com.firstfaceme.firstface.controller.CustomViews.MyEditTextBoldRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fasion Designer"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/graytext"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/graytext"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_1sdp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/interested_in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_height="wrap_content">
+                    <com.firstfaceme.firstface.controller.CustomViews.MyEditTextBoldRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Women"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/graytext"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/graytext"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_1sdp"/>
+            <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Gallery"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textSize="@dimen/_16sdp" />
+
+            <RelativeLayout
+                android:layout_width="@dimen/_200sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/boarder_upload_pic"
+                android:layout_height="@dimen/_150sdp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/add" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/boarder_pink"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+                    android:layout_width="match_parent"
+                    android:text="@string/save"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14sdp"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

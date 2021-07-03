@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:background="@drawable/boarder_bottom_round_pink"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/back" />
+
+                    <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:text="@string/payment"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_32sdp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/stripe"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="vertical"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                        android:layout_width="wrap_content"
+                        android:text="@string/card_number"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+
+
+
+                <com.firstfaceme.firstface.controller.CustomViews.MyEditTextSemiBold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="4242424242424242"
+                    android:id="@+id/et_card_number"
+                    android:textSize="@dimen/_14sdp"
+                    android:backgroundTint="@color/graytext"
+                    android:textColor="@color/black"
+                    android:inputType="textPersonName|textCapWords" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                            android:layout_width="wrap_content"
+                            android:text="@string/expiration_date"
+                            android:textSize="@dimen/_16sdp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black"
+                            android:layout_height="wrap_content" />
+
+                        <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="06/45"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:id="@+id/et_expiration"
+                            android:textSize="@dimen/_14sdp"
+                            android:backgroundTint="@color/graytext"
+                            android:textColor="@color/black"
+                            android:inputType="textPersonName|textCapWords" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@color/graytext"
+                            android:layout_height="1dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                            android:layout_width="wrap_content"
+                            android:text="@string/CVV"
+                            android:textSize="@dimen/_16sdp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black"
+                            android:layout_height="wrap_content" />
+
+                        <com.firstfaceme.firstface.controller.CustomViews.MyEditTextSemiBold
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="***"
+                            android:id="@+id/et_cvv"
+                            android:textSize="@dimen/_14sdp"
+                            android:backgroundTint="@color/graytext"
+                            android:textColor="@color/black"
+                            android:inputType="numberPassword" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:layout_width="wrap_content"
+                    android:text="Premium Package of $5.66 (6 Months)"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <com.firstfaceme.firstface.controller.CustomViews.MyTextViewRegular
+                android:layout_width="wrap_content"
+                android:text="@string/lorem"
+                android:padding="@dimen/_10sdp"
+                android:textAlignment="center"
+                android:textSize="@dimen/_12sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_confirm_payment"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:background="@drawable/boarder_pink">
+
+                <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/confirm_payment"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

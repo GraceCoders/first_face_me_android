@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/login_bg"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.LoginActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/login_illus"
+          android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:id="@+id/ll_login"
+            android:background="@drawable/boarder_round_white"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_height="wrap_content">
+            <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+                android:layout_width="match_parent"
+                android:text="@string/login_number"
+                android:gravity="center"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <com.firstfaceme.firstface.controller.CustomViews.MyTextViewRegular
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textAlignment="center"
+
+            android:layout_gravity="center"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/white"
+            android:text="By tapping Log In, you agree with our Terms of Service &amp; Privacy Policy"
+            android:layout_height="wrap_content"/>
+
+        <com.firstfaceme.firstface.controller.CustomViews.MyTextViewRegular
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:text="@string/trouble_logging"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

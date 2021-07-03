@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bg"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+            android:layout_width="match_parent"
+            android:text="@string/discover"
+            android:textSize="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+        <com.yuyakaido.android.cardstackview.CardStackView
+            android:id="@+id/stack_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_380sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/iv_reject"
+                android:background="@drawable/reject"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:id="@+id/iv_accept"
+                android:background="@drawable/accept"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
