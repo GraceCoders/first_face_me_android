@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_80sdp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -13,8 +14,9 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/cvUserImage"
+                android:layout_width="@dimen/_68sdp"
+                android:layout_height="@dimen/_68sdp"
                 android:layout_margin="@dimen/_5sdp"
                 android:src="@drawable/queue1" />
         </LinearLayout>
@@ -22,6 +24,7 @@
 
 
         <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -34,7 +37,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:layout_gravity="center"
-            android:text="11.26am"
+            tools:text="11.26am"
             android:layout_marginRight="@dimen/_10sdp"
             android:textColor="#000000"
             android:textSize="@dimen/_12sdp" />

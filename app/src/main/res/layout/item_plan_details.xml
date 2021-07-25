@@ -5,6 +5,7 @@
     android:layout_marginLeft="@dimen/_10sdp"
     android:layout_height="@dimen/_180sdp">
     <LinearLayout
+        android:id="@+id/liPlan"
         android:layout_width="@dimen/_170sdp"
         android:orientation="vertical"
         android:background="@drawable/boarder_plan"
@@ -22,6 +23,7 @@
                 android:background="@drawable/premium"
                 android:layout_height="wrap_content"/>
             <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_height="wrap_content"
@@ -30,6 +32,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_24sdp" />
             <com.firstfaceme.firstface.controller.CustomViews.MyTextViewItalic
+                android:id="@+id/tvValidity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

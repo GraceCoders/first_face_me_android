@@ -11,13 +11,15 @@ data class RegisterRequest(
     @SerializedName("firstName")
     val firstName: String = "",
     @SerializedName("interestedIn")
-    val interestedIn: String = "",
+    val interestedIn: String = "", @SerializedName("gender")
+    val gender: String = "",
     @SerializedName("job")
     val job: String = "",
     @SerializedName("lastName")
     val lastName: String = "",
     @SerializedName("mobileNumber")
-    val mobileNumber: String = "",
+    val mobileNumber: String = "", @SerializedName("age")
+    val age: String = "",
     @SerializedName("startPoint")
     val startPoint: StartPoint = StartPoint()
 )

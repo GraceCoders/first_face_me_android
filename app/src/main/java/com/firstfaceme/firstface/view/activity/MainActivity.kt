@@ -3,6 +3,7 @@ package com.firstfaceme.firstface.view.activity
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
@@ -12,13 +13,18 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.firstfaceme.firstface.R
+import com.firstfaceme.firstface.controller.utills.App
+import com.firstfaceme.firstface.controller.utills.AppPreferences
+import com.firstfaceme.firstface.controller.utills.Constants
 import com.firstfaceme.firstface.view.adapter.HomeVPAdapter
 import com.firstfaceme.firstface.view.frgament.HomeFragment
 import com.firstfaceme.firstface.view.frgament.MessageFragment
 import com.firstfaceme.firstface.view.frgament.ProfileFragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
@@ -31,7 +37,11 @@ class MainActivity : AppCompatActivity() {
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>setting bottom navigation using view pager>>>>>>.>>>>>>>>>>>>
     private fun initView() {
-
+        Log.e("TAG", "initView: "+     AppPreferences.init(App.getAppContext())
+            .getString(
+                Constants.AUTH_TOKEN
+            )
+        )
         val menuView =
             bottom_navigation.getChildAt(0) as BottomNavigationMenuView
 
@@ -59,11 +69,6 @@ class MainActivity : AppCompatActivity() {
         vp_main.setOffscreenPageLimit(3)
         vp_main.setAdapter(adapterViewPager)
         bottom_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
-
-
-
-
 
 
     }

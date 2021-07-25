@@ -52,6 +52,17 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:background="@drawable/stripe"
                 android:layout_height="wrap_content"/>
+
+            <com.stripe.android.view.CardMultilineWidget
+                android:id="@+id/cardInputWidget"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+
+                android:layout_alignParentBottom="true"
+                />
+<!--
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_20sdp"
@@ -144,6 +155,7 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_30sdp"
@@ -151,6 +163,7 @@
                 android:background="@color/colorPrimary"
                 android:layout_height="wrap_content">
                 <com.firstfaceme.firstface.controller.CustomViews.MyTextViewSemiBold
+                    android:id="@+id/tvPrice"
                     android:layout_width="wrap_content"
                     android:text="Premium Package of $5.66 (6 Months)"
                     android:textSize="@dimen/_12sdp"
@@ -192,4 +205,18 @@
 
         </LinearLayout>
     </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/rlPayment"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 </RelativeLayout>

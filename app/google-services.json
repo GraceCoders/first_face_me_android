@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "736174911591",
+    "project_id": "firstfaceme-9bad0",
+    "storage_bucket": "firstfaceme-9bad0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736174911591:android:89542661ee6808fcb824c2",
+        "android_client_info": {
+          "package_name": "com.firstfaceme.firstface"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736174911591-07jn1fptc35obdq9a46jhtg7oc342gcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlv2bDrBMC9OjXtrybGhKtjAXAxryxwaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736174911591-07jn1fptc35obdq9a46jhtg7oc342gcp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736174911591-jgimsbi8roh00keg0dbgstvjdkq9nbvk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.FirstFaceMe.FirstFaceME"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

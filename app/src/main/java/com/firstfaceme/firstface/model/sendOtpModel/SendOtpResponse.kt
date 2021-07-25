@@ -4,12 +4,12 @@ package com.firstfaceme.firstface.model.sendOtpModel
 import com.google.gson.annotations.SerializedName
 
 data class SendOtpResponse(
-    @SerializedName("data")
-    val `data`: Data = Data(),
-    @SerializedName("message")
-    val message: String = "",
-    @SerializedName("status")
-    val status: String = "",
-    @SerializedName("statusCode")
-    val statusCode: Int = 0
+    val `data`: Datas,
+    val message: String,
+    val status: String,
+    val statusCode: Int
+)
+
+data class Datas(
+    val token: String
 )

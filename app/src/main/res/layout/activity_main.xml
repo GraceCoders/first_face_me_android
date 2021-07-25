@@ -21,6 +21,8 @@
             <com.firstfaceme.firstface.controller.CustomViews.NonSwipeableViewPager
                 android:id="@+id/vp_main"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="68dp"
+
                 android:layout_height="match_parent">
 
                 <FrameLayout

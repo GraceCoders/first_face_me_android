@@ -90,6 +90,7 @@ object Validations {
         applicationContext: Activity,
         mEtUsername: EditText?,
         mEtLastname: EditText?,
+        mEtAge: EditText?,
         mEtBio: EditText?,
         mEtJob: EditText?
     ): Boolean {
@@ -97,6 +98,9 @@ object Validations {
             return false
         }
         if (validateUsername(applicationContext, mEtLastname!!, applicationContext.resources.getString(R.string.err_last_name))) {
+            return false
+        }
+        if (validateUsername(applicationContext, mEtAge!!, applicationContext.resources.getString(R.string.err_age))) {
             return false
         }
         if (validateUsername(applicationContext, mEtBio!!, applicationContext.resources.getString(R.string.err_bio))) {
@@ -107,20 +111,28 @@ object Validations {
         }
         return true
     }
-//
-//    fun isValidateSignup(applicationContext: Activity,mEtUsername: EditText?,mEtLastName: EditText?,  mEtEmail: EditText?, mEtPassword: EditText?): Boolean {
-//        if (validateUsername(applicationContext, mEtUsername!!, applicationContext.resources.getString(R.string.error_empty_first_name))) {
-//            return false
-//        }
-//        if (validateUsername(applicationContext, mEtLastName!!, applicationContext.resources.getString(R.string.error_empty_last_name))) {
-//            return false
-//        }
-//        if (validateEmailAddress(applicationContext, mEtEmail!!, applicationContext.resources.getString(R.string.error_empty_user_id))) {
-//            return false
-//        }
-//        if (validateUsername(applicationContext, mEtPassword!!, applicationContext.resources.getString(R.string.error_empty_password))) {
-//            return false
-//        }
-//        return true
-//    }
+
+    fun isUpdateProfile(
+        applicationContext: Activity,
+        mEtUsername: EditText?,
+        mEtLastname: EditText?,
+        mEtBio: EditText?,
+        mEtJob: EditText?
+    ): Boolean {
+        if (validateUsername(applicationContext, mEtUsername!!, applicationContext.resources.getString(R.string.err_first_name))) {
+            return false
+        }
+        if (validateUsername(applicationContext, mEtLastname!!, applicationContext.resources.getString(R.string.err_last_name))) {
+            return false
+        }
+
+        if (validateUsername(applicationContext, mEtBio!!, applicationContext.resources.getString(R.string.err_bio))) {
+            return false
+        }
+        if (validateUsername(applicationContext, mEtJob!!, applicationContext.resources.getString(R.string.err_job))) {
+            return false
+        }
+        return true
+    }
+
 }

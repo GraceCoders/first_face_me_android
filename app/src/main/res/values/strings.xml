@@ -64,6 +64,22 @@
     <string name="err_bio">Please Enter Your Bio.</string>
     <string name="err_job">Please Enter Your Job.</string>
     <string name="err_slect_gender">Please select Gender.</string>
+    <string name="err_age">Please Enter Age</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="transgender">TransGender</string>
+    <string name="offline">Offline</string>
+    <string name="select_plan">Select Plan First</string>
+    <string name="no_message">No Message  Found</string>
+    <string name="decline">Decline</string>
+    <string name="answere">Answer</string>
+    <string name="permissions_needed">Permission Need</string>
+    <string name="room_screen_select_device">Select Devices</string>
+    <string name="deletee_account_Are_you">Are you sure you want to delete account?</string>
+    <string name="are_ypu_sire_logout">Are you sure to Logout?</string>
+    <string name="no_match">No Match Found</string>
+    <string name="keep_swiping">Keep Swiping</string>
+    <string name="start_video_cal">Start Video Call</string>
 
 
     //gender array

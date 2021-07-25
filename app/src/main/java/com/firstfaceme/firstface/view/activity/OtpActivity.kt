@@ -13,6 +13,9 @@ import androidx.annotation.Nullable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.firstfaceme.firstface.R
+import com.firstfaceme.firstface.controller.utills.App
+import com.firstfaceme.firstface.controller.utills.AppPreferences
+import com.firstfaceme.firstface.controller.utills.Constants
 import com.firstfaceme.firstface.controller.utills.SnackbarUtil
 import com.firstfaceme.firstface.model.varifyotpModel.VarifyOtpResponse
 import com.firstfaceme.firstface.view.viewmodel.VarifyOtpViewModel
@@ -82,13 +85,19 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                         isExist= varifyOtpResponse?.data?.isExist.toString()
                         if(isExist.equals("false"))
                         {
-                            val intent = Intent(applicationContext, MainActivity::class.java)
+                            val intent = Intent(applicationContext, RegistereProfileActivity::class.java)
+                            intent.putExtra("mobileNumber",mobileNumber)
+                            intent.putExtra("countryCode",countryCode)
+
                             startActivity(intent)
+                            finishAffinity()
                         }
                         else
-                        {
+                        {     AppPreferences.init(App.getAppContext())
+                            .putBoolean(Constants.IS_LOGIN,true)
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
+                            finishAffinity()
                         }
                     }
                     else

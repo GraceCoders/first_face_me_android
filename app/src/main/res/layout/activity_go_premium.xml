@@ -74,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_5sdp"
-                    android:text="Duis aute irure exenimen"
+                    android:text="Unlimited Likes"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
             </LinearLayout>
@@ -97,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_5sdp"
-                    android:text="Duis aute irure exenimen"
+                    android:text="Unlimited Video call"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
             </LinearLayout>
@@ -121,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_5sdp"
-                    android:text="Duis aute irure exenimen"
+                    android:text="More reachbility"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
             </LinearLayout>
@@ -166,4 +166,16 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlSubscription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 </RelativeLayout>

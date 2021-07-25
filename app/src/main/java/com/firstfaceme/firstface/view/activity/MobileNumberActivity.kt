@@ -36,7 +36,7 @@ class MobileNumberActivity : AppCompatActivity(),View.OnClickListener {
     private fun initView() {
         viewModel = ViewModelProviders.of(this).get(SendOtpViewModel::class.java)
         ll_send_otp.setOnClickListener(this)
-        ccp.registerPhoneNumberTextView(et_number)
+//        ccp.registerPhoneNumberTextView(et_number)
     }
 
 override fun onClick(v: View?) {

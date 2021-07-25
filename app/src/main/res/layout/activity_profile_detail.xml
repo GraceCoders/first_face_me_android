@@ -8,11 +8,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.appcompat.widget.AppCompatImageView
+
+            android:id="@+id/ivUserImage"
             android:layout_width="match_parent"
-            android:background="@drawable/girl"
-            android:id="@+id/back"
-            android:layout_height="match_parent"/>
+            android:scaleType="centerCrop"
+            android:layout_height="match_parent"
+            android:background="@drawable/avtarimage" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -52,12 +56,14 @@
             android:layout_alignParentBottom="true"
             android:layout_height="wrap_content">
             <com.firstfaceme.firstface.controller.CustomViews.MyTextViewBold
+                android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:text="Tailor Swift, 22"
                 android:textSize="@dimen/_20sdp"
                 android:textColor="@color/white"
                 android:layout_height="wrap_content"/>
             <com.firstfaceme.firstface.controller.CustomViews.MyTextViewRegular
+                android:id="@+id/tvBio"
                 android:layout_width="match_parent"
                 android:text="@string/lorem"
                 android:textSize="@dimen/_12sdp"
@@ -82,6 +88,7 @@
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_height="@dimen/_8sdp"/>
                     <com.firstfaceme.firstface.controller.CustomViews.MyTextViewRegular
+                        android:id="@+id/tvOnline"
                         android:layout_width="wrap_content"
                         android:text="Online"
                         android:layout_marginLeft="@dimen/_5sdp"
@@ -102,6 +109,7 @@
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_height="@dimen/_8sdp"/>
                     <com.firstfaceme.firstface.controller.CustomViews.MyTextViewRegular
+                        android:id="@+id/tvDistance"
                         android:layout_width="wrap_content"
                         android:text="25km"
                         android:layout_gravity="center"
@@ -128,6 +136,7 @@
                     android:background="@drawable/reject"
                     android:layout_height="wrap_content"/>
                 <androidx.appcompat.widget.AppCompatImageView
+
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:id="@+id/iv_accept"
