@@ -164,7 +164,7 @@ private  var maxDistance: Int=0
                     if (statusCode == 200) {
                         tvPhone.text = pojoUserProfileData.data.mobileNumber
                         tvAge.text = pojoUserProfileData.data.age.toString()
-
+                        seekbar_age.progress=pojoUserProfileData.data.age
                     } else {
                         showSnackBar(pojoUserProfileData!!.message)
 

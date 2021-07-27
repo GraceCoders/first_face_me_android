@@ -11,6 +11,7 @@ import com.firstfaceme.firstface.model.request.PostGetProfile
 import com.firstfaceme.firstface.model.request.PostUpdateProfile
 import com.firstfaceme.firstface.model.request.StartPoint
 import com.firstfaceme.firstface.model.setting.PostUpdateSetting
+import com.firstfaceme.firstface.model.subscription.PojoCheckSubscriptin
 import com.firstfaceme.firstface.model.userInfo.PojoUserDetail
 import com.urbanspts.urbanspts.controller.services.APIRepository
 import java.io.File
@@ -113,4 +114,17 @@ class ProfileViewModel : AndroidViewModel {
         return APIRepository.deleteUser(mToken, userID)
         return mutableLiveData
     }
+
+    fun checkSubscription(
+        authToken: String?,
+        userId:String
+    ): LiveData<PojoCheckSubscriptin> {
+        var mutableLiveData: MutableLiveData<PojoCheckSubscriptin> = MutableLiveData()
+
+        return APIRepository.checkSubscription(authToken!!,userId!!)
+
+
+        return mutableLiveData
+    }
+
 }

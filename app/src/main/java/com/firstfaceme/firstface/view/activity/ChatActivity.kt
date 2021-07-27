@@ -1,6 +1,7 @@
 package com.firstfaceme.firstface.view.activity
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,6 +13,7 @@ import com.firstfaceme.firstface.controller.utills.Constants
 import com.firstfaceme.firstface.controller.utills.SnackbarUtil
 import com.firstfaceme.firstface.model.chat.PojoMessage
 import com.firstfaceme.firstface.model.friends.Data
+import com.firstfaceme.firstface.view.activity.twilioVoice.VideoActivity
 import com.firstfaceme.firstface.view.adapter.MessagesListAdapter
 import com.firstfaceme.firstface.view.viewmodel.ProfileViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +28,7 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
     var mMessageList = mutableListOf<PojoMessage>()
     private var viewModel: ProfileViewModel? = null
     var auth_token = ""
+    private var mISSubscription = false
 
     private var chatRoom = ""
     private var mFirebaseDatabaseInstances: FirebaseFirestore? = null
@@ -42,6 +45,12 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         mUserId = AppPreferences.init(this).getString(Constants.USER_ID)
+
+
+        auth_token = AppPreferences.init(this).getString(Constants.AUTH_TOKEN)
+
+        checkSubscription(auth_token, mUserId)
+
 
         // set adapter
         rvChat.adapter = mChatListAdapter
@@ -63,6 +72,18 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
                 .into(cvUserImage)
             // get data
             getDataFromFireBase(data.chatRoom)
+
+            ivVideoCall.setOnClickListener {
+                if (!mISSubscription) {
+                    showSnackBar("First purchase subscription")
+
+                } else {
+                    val intent = Intent(this, VideoActivity::class.java)
+                    intent.putExtra("QUEUEID", data._id)
+                    intent.putExtra("OTHERID", data.otherId._id)
+                    startActivity(intent)
+                }
+            }
 
         }
 
@@ -253,4 +274,36 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
     private fun showSnackBar(message: String?) {
         SnackbarUtil.showWarningShortSnackbar(this, message)
     }
+
+    //.....................................check  Subscription Plan ............................................
+
+    fun checkSubscription(
+        auth_token: String,
+
+        mUserId: String
+    ) {
+        viewModel!!.checkSubscription(
+            auth_token, mUserId
+        )
+
+            .observe(
+                this,
+                { pojoSubscriptionList ->
+
+                    val statusCode = pojoSubscriptionList?.statusCode
+                    if (statusCode == 200) {
+
+
+                        mISSubscription =
+                            pojoSubscriptionList.message != "First purchase subscription"
+
+
+                    } else {
+                        showSnackBar(pojoSubscriptionList!!.message)
+
+                    }
+                })
+    }
+
+
 }

@@ -31,17 +31,19 @@ public class IncomingCallNotificationService extends Service {
         String action = intent.getAction();
 
         if (action != null) {
-            String callInvite = intent.getStringExtra(Constantss.INCOMING_CALL_INVITE);
+            String name = intent.getStringExtra(Constantss.INCOMING_QUE_NAME);
+            String queID = intent.getStringExtra(Constantss.INCOMING_QUE_ID);
+            String QueImage = intent.getStringExtra(Constantss.INCOMING_QUE_IMAGE);
             int notificationId = intent.getIntExtra(Constantss.INCOMING_CALL_NOTIFICATION_ID, 0);
             switch (action) {
                 case Constantss.ACTION_INCOMING_CALL:
-                    handleIncomingCall(callInvite, notificationId);
+                    handleIncomingCall(name, queID,QueImage);
                     break;
                 case Constantss.ACTION_ACCEPT:
-                    accept(callInvite, notificationId);
+                    accept(name, notificationId);
                     break;
                 case Constantss.ACTION_REJECT:
-                    reject(callInvite);
+                    reject(name);
                     break;
                 case Constantss.ACTION_CANCEL_CALL:
                     handleCancelledCall(intent);
@@ -58,16 +60,17 @@ public class IncomingCallNotificationService extends Service {
         return null;
     }
 
-    private Notification createNotification(String callInvite, int notificationId, int channelImportance) {
+    private Notification createNotification(String name, String queID,String image, int channelImportance) {
         
         
         Intent intent = new Intent(this, VoiceActivity.class);
         intent.setAction(Constantss.ACTION_INCOMING_CALL_NOTIFICATION);
-        intent.putExtra(Constantss.INCOMING_CALL_NOTIFICATION_ID, notificationId);
-        intent.putExtra(Constantss.INCOMING_CALL_INVITE, callInvite);
+        intent.putExtra(Constantss.INCOMING_QUE_NAME, name);
+        intent.putExtra(Constantss.INCOMING_QUE_ID, queID);
+        intent.putExtra(Constantss.INCOMING_QUE_IMAGE, image);;
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent =
-                PendingIntent.getActivity(this, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         /*
          * Pass the notification id and call sid to use as an identifier to cancel the
          * notification later
@@ -76,18 +79,18 @@ public class IncomingCallNotificationService extends Service {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            return buildNotification(callInvite + " is calling.",
+            return buildNotification(name + " is calling.",
                     pendingIntent,
                     extras,
-                    callInvite,
-                    notificationId,
+                    name,
+                    0,
                     createChannel(channelImportance));
         } else {
             //noinspection deprecation
             return new NotificationCompat.Builder(this)
                     .setSmallIcon(R.drawable.logo)
                     .setContentTitle(getString(R.string.app_name))
-                    .setContentText(callInvite+ " is calling.")
+                    .setContentText(name+ " is calling.")
                     .setAutoCancel(true)
                     .setExtras(extras)
                     .setContentIntent(pendingIntent)
@@ -175,11 +178,11 @@ public class IncomingCallNotificationService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
-    private void handleIncomingCall(String callInvite, int notificationId) {
+    private void handleIncomingCall(String name, String queID,String image) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            setCallInProgressNotification(callInvite, notificationId);
+            setCallInProgressNotification(name, queID,queID);
         }
-        sendStringToActivity(callInvite, notificationId);
+        sendStringToActivity(name, queID,queID);
     }
 
     private void endForeground() {
@@ -187,27 +190,28 @@ public class IncomingCallNotificationService extends Service {
     }
 
     @TargetApi(Build.VERSION_CODES.O)
-    private void setCallInProgressNotification(String callInvite, int notificationId) {
+    private void setCallInProgressNotification(String name, String queID,String image ) {
         if (isAppVisible()) {
             Log.i(TAG, "setCallInProgressNotification - app is visible.");
-            startForeground(notificationId, createNotification(callInvite, notificationId, NotificationManager.IMPORTANCE_LOW));
+            startForeground(0, createNotification(name, queID, image,NotificationManager.IMPORTANCE_LOW));
         } else {
             Log.i(TAG, "setCallInProgressNotification - app is NOT visible.");
-            startForeground(notificationId, createNotification(callInvite, notificationId, NotificationManager.IMPORTANCE_HIGH));
+            startForeground(0, createNotification(name, queID, image, NotificationManager.IMPORTANCE_HIGH));
         }
     }
 
     /*
      * Send the String to the VoiceActivity. Start the activity if it is not running already.
      */
-    private void sendStringToActivity(String callInvite, int notificationId) {
+    private void sendStringToActivity(String name, String queID,String image ) {
         if (Build.VERSION.SDK_INT >= 29 && !isAppVisible()) {
             return;
         }
         Intent intent = new Intent(this, VoiceActivity.class);
         intent.setAction(Constantss.ACTION_INCOMING_CALL);
-        intent.putExtra(Constantss.INCOMING_CALL_NOTIFICATION_ID, notificationId);
-        intent.putExtra(Constantss.INCOMING_CALL_INVITE, callInvite);
+        intent.putExtra(Constantss.INCOMING_QUE_NAME, name);
+        intent.putExtra(Constantss.INCOMING_QUE_ID, queID);
+        intent.putExtra(Constantss.INCOMING_QUE_IMAGE, image);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);

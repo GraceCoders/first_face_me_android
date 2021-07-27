@@ -45,14 +45,10 @@
     <string name="gender">Gender</string>
     <string name="save">SAVE</string>
     <string name="type_here">Type here</string>
-    <string name="review">Review</string>
 
     //go premium
     <string name="subscribe">SUBSCRIBE</string>
     <string name="payment">Payment</string>
-    <string name="card_number">Card Number</string>
-    <string name="expiration_date">Expiration Date</string>
-    <string name="CVV">CVV</string>
     <string name="confirm_payment">CONFIRM PAYMENT</string>
     <string name="share">Share</string>
 
@@ -63,7 +59,6 @@
     <string name="err_last_name">Please Enter Your Last Name.</string>
     <string name="err_bio">Please Enter Your Bio.</string>
     <string name="err_job">Please Enter Your Job.</string>
-    <string name="err_slect_gender">Please select Gender.</string>
     <string name="err_age">Please Enter Age</string>
     <string name="male">Male</string>
     <string name="female">Female</string>

@@ -23,6 +23,7 @@ import com.firstfaceme.firstface.model.request.PostGetProfile
 import com.firstfaceme.firstface.model.request.PostUpdateProfile
 import com.firstfaceme.firstface.model.sendOtpModel.SendOtpResponse
 import com.firstfaceme.firstface.model.setting.PostUpdateSetting
+import com.firstfaceme.firstface.model.subscription.PojoCheckSubscriptin
 import com.firstfaceme.firstface.model.subscription.PojoGetPlanList
 import com.firstfaceme.firstface.model.subscription.PostPurchasePlan
 import com.firstfaceme.firstface.model.userInfo.PojoUpdateImage
@@ -894,6 +895,39 @@ object APIRepository {
             }
 
             override fun onFailure(call: Call<PojoCallAction>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+
+        return mutableLiveData
+    }
+
+    // check subscription user //////////////////////////
+    fun checkSubscription(
+        mToken: String?,
+        mUserId: String): LiveData<PojoCheckSubscriptin> {
+        val mutableLiveData: MutableLiveData<PojoCheckSubscriptin> = MutableLiveData()
+
+        val postDeleteAccount = PostDeleteAccount(mUserId)
+        val call =
+            apiInterface.checkSubscription("Bearer " + mToken, postDeleteAccount)
+        call.enqueue(object : Callback<PojoCheckSubscriptin> {
+            override fun onResponse(
+                call: Call<PojoCheckSubscriptin>,
+                response: Response<PojoCheckSubscriptin>
+            ) {
+                if (response.isSuccessful) {
+                    try {
+                        val pojoNotificationCount: PojoCheckSubscriptin? = response.body()
+                        mutableLiveData.value = pojoNotificationCount
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                } else {
+                }
+            }
+
+            override fun onFailure(call: Call<PojoCheckSubscriptin>, t: Throwable) {
                 t.printStackTrace()
             }
         })

@@ -14,6 +14,7 @@ import com.firstfaceme.firstface.controller.utills.AppPreferences
 import com.firstfaceme.firstface.controller.utills.Constants
 import com.firstfaceme.firstface.controller.utills.SnackbarUtil
 import com.firstfaceme.firstface.view.viewmodel.HomeViewModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_voice.*
 
 class VoiceActivity : AppCompatActivity(), View.OnClickListener {
@@ -22,7 +23,7 @@ class VoiceActivity : AppCompatActivity(), View.OnClickListener {
     private var viewModel: HomeViewModel? = null
     var auth_token = ""
     private var voiceBroadcastReceiver: VoiceBroadcastReceiver? = null
-
+    var mQueueID = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voice)
@@ -35,11 +36,53 @@ class VoiceActivity : AppCompatActivity(), View.OnClickListener {
         voiceBroadcastReceiver = VoiceBroadcastReceiver()
         SoundPoolManager.getInstance(this).playRinging()
 
+        if (intent.extras != null) {
+            mQueueID=intent.getStringExtra(Constantss.INCOMING_QUE_ID)
+            getQueueUser(intent.getStringExtra(Constantss.INCOMING_QUE_ID))
+            remoteUser.text = intent.getStringExtra(Constantss.INCOMING_QUE_NAME)
+            Picasso.with(this)
+                .load(intent.getStringExtra(Constantss.INCOMING_QUE_IMAGE))
+                .into(ivAvatar)
+        }
+
 
         // set click listener
         declineButton.setOnClickListener(this)
         answerButton.setOnClickListener(this)
 
+    }
+    //.....................................get  Queue User list  ............................................
+
+    fun getQueueUser(queID: String) {
+        viewModel!!.getQueueUser(
+            auth_token,
+            mUserId
+        )
+            .observe(
+                this,
+                { pojoUserProfileData ->
+
+                    val statusCode = pojoUserProfileData?.statusCode
+                    if (statusCode == 200) {
+                        for (i in pojoUserProfileData.data.indices) {
+                            if (pojoUserProfileData.data[i]._id == queID) {
+                                Picasso.with(this)
+                                    .load(pojoUserProfileData.data[i].queId.profileImage)
+                                    .into(ivAvatar)
+                                remoteUser.text =
+                                    pojoUserProfileData.data[i].queId.firstName + " " +
+                                            pojoUserProfileData.data[i].queId.lastName
+
+                                mQueueID = queID
+                                mOtherUserId = pojoUserProfileData.data[i].queId._id
+                            }
+                        }
+
+                    } else {
+                        showSnackBar(pojoUserProfileData!!.message)
+
+                    }
+                })
     }
 
 
@@ -130,9 +173,14 @@ class VoiceActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.declineButton -> {
                 rejectCall()
+                finish()
             }
             R.id.answerButton -> {
                 acceptCall()
+                val intent = Intent(this, IncomingVideoActivity::class.java)
+                intent.putExtra("QUEUEID", mQueueID)
+                intent.putExtra("OTHERID", mOtherUserId?:"")
+                startActivity(intent)
             }
         }
     }
@@ -171,7 +219,7 @@ class VoiceActivity : AppCompatActivity(), View.OnClickListener {
 
                     val statusCode = pojoUserProfileData?.statusCode
                     if (statusCode == 200) {
-
+                        finish()
 
                     } else {
                         showSnackBar(pojoUserProfileData!!.message)

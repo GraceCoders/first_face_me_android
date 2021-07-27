@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.firstfaceme.firstface.model.home.PojoHome
+import com.firstfaceme.firstface.model.subscription.PojoCheckSubscriptin
 import com.firstfaceme.firstface.model.subscription.PojoGetPlanList
 import com.firstfaceme.firstface.model.subscription.PostPurchasePlan
 import com.urbanspts.urbanspts.controller.services.APIRepository
@@ -38,6 +39,19 @@ class SubscriptionViewModel : AndroidViewModel {
 val postPurchasePlan= PostPurchasePlan(cost!!.toDouble(),planId,purchasetoken,userId)
 
         return APIRepository.purchasePlan(authToken,postPurchasePlan)
+
+
+        return mutableLiveData
+    }
+
+
+    fun checkSubscription(
+        authToken: String?,
+        userId:String
+    ): LiveData<PojoCheckSubscriptin> {
+        var mutableLiveData: MutableLiveData<PojoCheckSubscriptin> = MutableLiveData()
+
+        return APIRepository.checkSubscription(authToken!!,userId!!)
 
 
         return mutableLiveData

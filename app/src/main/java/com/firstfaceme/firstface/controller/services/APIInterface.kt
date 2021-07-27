@@ -18,6 +18,7 @@ import com.firstfaceme.firstface.model.request.PostGetProfile
 import com.firstfaceme.firstface.model.request.PostUpdateProfile
 import com.firstfaceme.firstface.model.sendOtpModel.SendOtpResponse
 import com.firstfaceme.firstface.model.setting.PostUpdateSetting
+import com.firstfaceme.firstface.model.subscription.PojoCheckSubscriptin
 import com.firstfaceme.firstface.model.subscription.PojoGetPlanList
 import com.firstfaceme.firstface.model.subscription.PostPurchasePlan
 import com.firstfaceme.firstface.model.userInfo.PojoUpdateImage
@@ -193,4 +194,9 @@ interface APIInterface {
     fun deleteAccount(
         @Header("token") authorization: String?, @Body postAddQueue: PostDeleteAccount
     ): Call<PojoCallAction>
+    @Headers("Content-Type: application/json")
+    @POST(Constants.API_CHECK_SUBSCRIPTION)
+    fun checkSubscription(
+        @Header("token") authorization: String?, @Body postAddQueue: PostDeleteAccount
+    ): Call<PojoCheckSubscriptin>
 }

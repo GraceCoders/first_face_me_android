@@ -18,7 +18,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.firstfaceme.firstface.R
 import com.firstfaceme.firstface.view.activity.ChatActivity
-import com.firstfaceme.firstface.view.activity.MainActivity
 import com.firstfaceme.firstface.view.activity.twilioVoice.Constantss
 import com.firstfaceme.firstface.view.activity.twilioVoice.IncomingCallNotificationService
 import com.firstfaceme.firstface.view.activity.twilioVoice.VoiceActivity
@@ -41,6 +40,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         private const val PARAM_KEY_PUSH_TYPE = "type"
         private const val PARAM_KEY_MESSAGE_TO_DISPLAY = "name"
+        private const val PARAM_KEY_QUEUEID = "queId"
+        private const val PARAM_KEY_NAME = "Name"
+        private const val PARAM_KEY_PROFILE_IMAGENAME = "profileImage"
 
 
         // Notification channel data
@@ -85,18 +87,18 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
           val   msg = remoteMessage.notification!!.body
             Log.e("TAG", "onMessageReceived: " + msg.toString())
             Log.e("TAG", "onMessageReceived: " + msg.toString())
-            handleInvite(msg!!,0)
-        }
 
+        }
+        handleInvite(mapData[PARAM_KEY_NAME]!!,mapData[PARAM_KEY_QUEUEID],mapData[PARAM_KEY_PROFILE_IMAGENAME])
         if (null == mNotificationManager) {
             mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE)
                     as NotificationManager
         }
-        sendGeneralNotification(
+      /*  sendGeneralNotification(
             mapData[PARAM_KEY_MESSAGE_TO_DISPLAY] ?: "",
             CHANNEL_ID_ADMIN_NOTIFICATIONS,
             CHANNEL_NAME_ADMIN_NOTIFICATIONS
-        )
+        )*/
         if (mapData.containsKey(PARAM_KEY_PUSH_TYPE)
 
         ) {
@@ -129,12 +131,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
 
     }
-    private fun handleInvite(callInvite: String, notificationId: Int) {
+    private fun handleInvite(name: String, queID: String?, image: String?) {
         val intent =
             Intent(this, IncomingCallNotificationService::class.java)
         intent.action = Constantss.ACTION_INCOMING_CALL
-        intent.putExtra(Constantss.INCOMING_CALL_NOTIFICATION_ID, notificationId)
-        intent.putExtra(Constantss.INCOMING_CALL_INVITE, callInvite)
+        intent.putExtra(Constantss.INCOMING_QUE_ID, queID)
+        intent.putExtra(Constantss.INCOMING_QUE_NAME, name)
+        intent.putExtra(Constantss.INCOMING_QUE_IMAGE, image)
         startService(intent)
     }
 

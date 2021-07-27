@@ -7,6 +7,9 @@ public class Constantss {
     public static final String INCOMING_CALL_INVITE = "INCOMING_CALL_INVITE";
     public static final String CANCELLED_CALL_INVITE = "CANCELLED_CALL_INVITE";
     public static final String INCOMING_CALL_NOTIFICATION_ID = "INCOMING_CALL_NOTIFICATION_ID";
+    public static final String INCOMING_QUE_ID = "INCOMING_QUE_ID";
+    public static final String INCOMING_QUE_NAME = "INCOMING_QUE_NAME";
+    public static final String INCOMING_QUE_IMAGE = "INCOMING_QUE_IMAGE";
     public static final String ACTION_ACCEPT = "ACTION_ACCEPT";
     public static final String ACTION_REJECT = "ACTION_REJECT";
     public static final String ACTION_INCOMING_CALL_NOTIFICATION = "ACTION_INCOMING_CALL_NOTIFICATION";

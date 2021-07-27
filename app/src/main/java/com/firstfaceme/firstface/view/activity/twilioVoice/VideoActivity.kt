@@ -141,10 +141,13 @@ class VideoActivity : AppCompatActivity() {
             videoStatusTextView.text = "Failed to connect"
             audioSwitch.deactivate()
             initializeUI()
+            finish()
+
         }
 
         override fun onDisconnected(room: Room, e: TwilioException?) {
             localParticipant = null
+
             videoStatusTextView.text = "Disconnected from ${room.name}"
             reconnectingProgressBar.visibility = View.GONE;
             this@VideoActivity.room = null
@@ -154,6 +157,7 @@ class VideoActivity : AppCompatActivity() {
                 initializeUI()
                 moveLocalVideoToPrimaryView()
             }
+            finish()
         }
 
         override fun onParticipantConnected(room: Room, participant: RemoteParticipant) {
@@ -575,7 +579,6 @@ class VideoActivity : AppCompatActivity() {
 
 
     private fun connectToRoom(roomName: String) {
-        audioSwitch.activate();
 
         room = connect(this, accessToken, roomListener) {
             roomName(roomName)
@@ -625,6 +628,13 @@ class VideoActivity : AppCompatActivity() {
         localVideoActionFab.setOnClickListener(localVideoClickListener())
         muteActionFab.show()
         muteActionFab.setOnClickListener(muteClickListener())
+
+        hangupCall.setOnClickListener {
+
+            disconnectClickListener()
+            finish()
+        }
+
     }
 
     /*
@@ -912,6 +922,7 @@ class VideoActivity : AppCompatActivity() {
                     val statusCode = pojoToken?.statusCode
                     if (statusCode == 200) {
                         accessToken=pojoToken.token
+
                         callTOUser(QueID,intent.extras!!.getString("OTHERID")!!)
 
                     } else {

@@ -119,6 +119,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
                             AppPreferences.init(App.getAppContext())
                                 .putString(Constants.USER_ID, pojoUserProfileData.data._id)
+
+                            AppPreferences.init(App.getAppContext())
+                                .putString(Constants.USER_ID, pojoUserProfileData.data._id)
                             tvNameAge.text =
                                 pojoUserProfileData.data.firstName + " " + pojoUserProfileData.data.lastName + ", " + pojoUserProfileData.data.age
                             AppPreferences.init(requireContext())

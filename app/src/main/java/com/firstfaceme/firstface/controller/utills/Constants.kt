@@ -34,6 +34,7 @@ object Constants {
     const val API_GET_QUEUE = "que/all "
     const val API_GET_PLAN = "subscription/all/plans"
     const val API_PURCHASE_PLAN = "subscription/purchase/plan"
+    const val API_CHECK_SUBSCRIPTION = "subscription/check/plan"
     const val API_FRIEND_LIST = "friend/list"
 
     //preferences
@@ -41,6 +42,7 @@ object Constants {
     const val MOBILE_NUMBER = "mobile"
     const val COUNTRY_CODE = "country_code"
     const val IS_LOGIN = "is_login"
+    const val SUBSCRIPTION = "subscription"
 
     const val USERNAME = "username"
     const val EMAIL = "useremail"

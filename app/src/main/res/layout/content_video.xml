@@ -9,22 +9,19 @@
     tools:showIn="@layout/activity_video">
 
     <com.twilio.video.VideoView
-        android:id="@+id/primaryVideoView"
+        android:id="@+id/thumbnailVideoView"
         app:tviOverlaySurface="true"
         app:tviMirror="true"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_margin="16dp"
-        app:tviScaleType="fill"
-
         android:layout_gravity="bottom|start"/>
 
     <com.twilio.video.VideoView
-        android:id="@+id/thumbnailVideoView"
+        android:id="@+id/primaryVideoView"
         app:tviMirror="true"
-        app:tviScaleType="fill"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
     <ProgressBar
@@ -50,7 +47,7 @@
             android:layout_gravity="center"
             android:textColor="@color/colorAccent"
             android:textSize="20sp"
-          />
+      />
 
     </LinearLayout>
 
